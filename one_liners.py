@@ -23,11 +23,18 @@ def create_file_of_names_lengths(file_path, path_of_new_file):
             f_lengths.writelines('\n'.join([str(len(name.strip())) for name in f.readlines()]))
 
 
+def get_all_names_with_given_length(file_path):
+    length = input("Enter name length: ")
+    with open(file_path, 'r') as f:
+        print('\n'.join([name.strip() for name in f.readlines() if len(name.strip()) == int(length)]))
+
+
 def main():
     longest_name("C:\\bis\\next\\names.txt")
     file_length("C:\\bis\\next\\names.txt")
     shortest_names("C:\\bis\\next\\names.txt")
     create_file_of_names_lengths("C:\\bis\\next\\names.txt", "C:\\bis\\next\\names_length.txt")
+    get_all_names_with_given_length("C:\\bis\\next\\names.txt")
 
 
 if __name__ == "__main__":
